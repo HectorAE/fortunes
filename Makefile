@@ -16,7 +16,7 @@ install :
 ifeq ($(findstring davestrider.dat,$(wildcard *.dat)),davestrider.dat)
 	install -m 644 -D davestrider $(DESTDIR)usr/share/fortune/davestrider
 	install -m 644 -D davestrider.dat $(DESTDIR)usr/share/fortune/davestrider.dat
-ifeq ($(findstring karkatvantas.dat,$(wildcard *.dat)),karkatvantas.dat)
+else ifeq ($(findstring karkatvantas.dat,$(wildcard *.dat)),karkatvantas.dat)
 	install -m 644 -D karkatvantas $(DESTDIR)usr/share/fortune/karkatvantas
 	install -m 644 -D karkatvantas.dat $(DESTDIR)usr/share/fortune/karkatvantas.dat
 else
