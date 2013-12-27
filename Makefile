@@ -2,7 +2,6 @@
 # by Hector Escobedo
 
 dat_files = davestrider.dat karkatvantas.dat
-dat_found =
 DESTDIR = /
 
 all : $(dat_files)
@@ -15,16 +14,14 @@ karkatvantas.dat : karkatvantas
 
 install :
 ifeq ($(findstring davestrider.dat,$(wildcard *.dat)),davestrider.dat)
-dat_found = yes
 	install -m 644 -D davestrider $(DESTDIR)usr/share/fortune/davestrider
 	install -m 644 -D davestrider.dat $(DESTDIR)usr/share/fortune/davestrider.dat
 endif
 ifeq ($(findstring karkatvantas.dat,$(wildcard *.dat)),karkatvantas.dat)
-dat_found = yes
 	install -m 644 -D karkatvantas $(DESTDIR)usr/share/fortune/karkatvantas
 	install -m 644 -D karkatvantas.dat $(DESTDIR)usr/share/fortune/karkatvantas.dat
 endif
-ifndef dat_found
+ifeq ($(strip $(wildcard *.dat)),)
 	@echo "Nothing to install yet. Try 'make all' first."
 endif
 
