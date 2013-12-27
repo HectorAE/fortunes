@@ -1,7 +1,6 @@
 fortunes
 ========
 
-This is a collection of fortunes I've put together myself. No license
-for this repository, because the copyrights and such are way too
-complicated for this. I believe that the Homestuck ones should qualify
-as fair use, however.
+This is a collection of fortunes I've put together myself. I believe
+that the Homestuck quotes should qualify as fair use, but I'm not
+completely sure, so there is no COPYING or LICENSE file for now.
