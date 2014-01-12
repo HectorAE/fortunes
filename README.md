@@ -3,7 +3,7 @@ fortunes
 
 This is a collection of fortunes I've put together myself. The `./homestuck`
 directory contains quotes from the Homestuck webcomic by Andrew Hussie on
-(MS Paint Adventures)[http://mspaintadventures.com/].
+[MS Paint Adventures](http://mspaintadventures.com/).
 
 Install
 -------
