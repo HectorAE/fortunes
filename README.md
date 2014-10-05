@@ -10,7 +10,17 @@ Install
 
 To install fortunes, follow these instructions.
 
-1. Identify the ones you want and run `make [target]` to build the strfiles; for example, `make` by itself or `make all` builds all of the fortunes. Use `make all-homestuck` to build all of the fortunes under `./homestuck` or `make homestuck/davestrider` to build only that fortune file.
+1. Identify the ones you want and run `make [target]` to build the strfiles; for
+   example, `make` by itself or `make all` builds all of the fortunes. Use `make
+   all-homestuck` to build all of the fortunes under `./homestuck` or `make
+   homestuck/davestrider.dat` to build only that strfile.
 2. Repeat until all of your desired targets have been built.
 3. Optionally, run `make clean` to start over.
 4. Run `make install` as root and everything will be installed on your system.
+
+<!--
+Local variables:
+fill-column: 80
+eval: (auto-fill-mode 1)
+End:
+-->
