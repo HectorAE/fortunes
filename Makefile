@@ -1,5 +1,5 @@
 # Makefile for strfile-ing and installing fortunes
-# by Hector A Escobedo
+# Written by Hector A Escobedo
 
 # VARIABLES
 
@@ -44,7 +44,7 @@ all-homestuck: $(all-dat-homestuck)
 
 # Automagical! Strfile anything to produce the target
 %.dat : %
-	strfile $^
+	strfile $<
 
 # File manipulation rules (don't need prerequisites)
 
