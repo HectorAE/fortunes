@@ -1,0 +1,123 @@
+#! /bin/bash
+
+# Configuration script, to be run before generating and installing fortunes. May
+# contain bash-specific features.
+# Written by Hector A Escobedo
+
+# Edit these user variables to alter the behavior and final output.
+
+# Set 'colorize=1' to generate colored fortunes and 'colorize=0' to disable.
+# Requires tput (provided with ncurses).
+colorize=1
+
+check_dependency ()
+{
+    if hash $1 2> /dev/null
+    then
+	echo "$1 installed"
+    else
+	echo "Error: $1 not installed"
+	exit 2
+    fi
+}
+
+check_all_dependencies ()
+{
+    echo "Checking that build dependencies are installed..."
+    check_dependency install
+    check_dependency m4
+    check_dependency make
+    check_dependency strfile
+    if [ $colorize -eq 1 ]
+    then
+	check_dependency tput
+    fi
+    echo "All dependencies are installed!"
+}
+
+check_color_macro_header_exists ()
+{
+    if [ -f colors.m4.header ]
+    then
+	:
+    else
+	echo "Error: colors.m4.header is required to generate colors.m4"
+	exit 2
+    fi
+}
+
+generate_color_macro ()
+{
+    echo "define(\`$1',\`$2')" >> colors.m4
+}
+
+generate_all_color_macros ()
+{
+    if [ -f colors.m4 ]
+    then
+	rm colors.m4
+	echo "Removed old generated color macros."
+    fi
+
+    check_color_macro_header_exists
+    cp colors.m4.header colors.m4
+
+    echo "# Basic color macros, generated with tput for $TERM" >> colors.m4
+    generate_color_macro '__reset_color__' `tput sgr0`
+    generate_color_macro '__bold__' `tput bold`
+    generate_color_macro '__black__' `tput setaf 0`
+    generate_color_macro '__red__' `tput setaf 1`
+    generate_color_macro '__green__' `tput setaf 2`
+    generate_color_macro '__yellow__' `tput setaf 3`
+    generate_color_macro '__blue__' `tput setaf 4`
+    generate_color_macro '__magenta__' `tput setaf 5`
+    generate_color_macro '__cyan__' `tput setaf 6`
+    generate_color_macro '__white__' `tput setaf 7`
+    echo "" >> colors.m4
+    echo "divert(\`0')dnl" >> colors.m4
+
+    echo "Created color macros for $TERM."
+}
+
+null_color_macros ()
+{
+    if [ -f colors.m4 ]
+    then
+	echo "Removing old generated color macros."
+	rm colors.m4
+    fi
+
+    check_color_macro_header_exists
+    cp colors.m4.header colors.m4
+
+    echo "# Null color macros, will expand to nothing" >> colors.m4
+    generate_color_macro '__reset_color__' ''
+    generate_color_macro '__bold__' ''
+    generate_color_macro '__black__' ''
+    generate_color_macro '__red__' ''
+    generate_color_macro '__green__' ''
+    generate_color_macro '__yellow__' ''
+    generate_color_macro '__blue__' ''
+    generate_color_macro '__magenta__ ' ''
+    generate_color_macro '__cyan__' ''
+    generate_color_macro '__white__' ''
+    echo "" >> colors.m4
+    echo "divert(\`0')dnl" >> colors.m4
+
+    echo "Created null color macros."
+}
+
+check_all_dependencies
+echo ""
+if [ $colorize -eq 1 ]
+then
+    generate_all_color_macros
+elif [ $colorize -eq 0 ]
+then
+    null_color_macros
+else
+    echo "Error: the 'colorize' variable is an invalid value"
+    echo "Please edit ./configure and set it to a valid integer."
+    exit 1
+fi
+echo "Configuration complete. Run 'make' next."

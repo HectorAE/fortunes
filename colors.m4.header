@@ -1,0 +1,7 @@
+define(`divert', `ifelse(`$#', `0', ``$0'', `builtin(`$0', $@)')')dnl
+divert(`-1')dnl
+
+# The previous definition is a wrapper that requires divert to have a parameter
+# in order to be recognized. Otherwise it is not expanded as a macro. Useful
+# because divert is a standard English word.
+
