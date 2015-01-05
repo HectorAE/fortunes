@@ -36,22 +36,22 @@ To install some or all fortunes on your system, follow these instructions.
    <~/Downloads/fortunes>`
 2. Edit the `configure` script with a text editor such as `nano`. It contains
    instructions on setting the user variables. `<editor> configure`
-2. Execute the configure script. If you get a message such as `bash:
+3. Execute the configure script. If you get a message such as `bash:
    ./configure: Permission denied`, the file permissions are not set correctly,
    and you must remedy this with `chmod +x configure` before retrying. If you
    get a message such as `Error: m4 not installed`, you are missing a dependency
    and must install that program from another source. `tput` is provided with
    the `ncurses` software. `./configure`
-3. If you want to install all fortunes, just run `make` or `make all` and skip
-   to step 6.
-4. Choose which targets you want and Make will build them. For example, `make
+4. If you want to install all fortunes, just run `make` or `make all` and skip
+   to step 7.
+5. Choose which targets you want and Make will build them. For example, `make
    all-homestuck` is a predefined shortcut to process all fortunes in the
    `homestuck` directory. If you want to build a few at a time, the syntax is
    `make <dir/target.dat>`. For example, `make homestuck/karkatvantas.dat` and
    then `make homestuck/davestrider.dat homestuck/roselalonde.dat` builds those
    three strfiles. Be mindful not to omit the file extension.
-5. Optionally, run `make clean` to delete all built files and start over.
-6. Finally, install. Only fortune files that have had strfiles built will be
+6. Optionally, run `make clean` to delete all built files and start over.
+7. Finally, install. Only fortune files that have had strfiles built will be
    copied over to the system-wide directories. `make install`
 
 ### Packagers ###
