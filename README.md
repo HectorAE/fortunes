@@ -44,12 +44,12 @@ To install some or all fortunes on your system, follow these instructions.
    the `ncurses` software. `./configure`
 4. If you want to install all fortunes, just run `make` or `make all` and skip
    to step 7.
-5. Choose which targets you want and Make will build them. For example, `make
-   all-homestuck` is a predefined shortcut to process all fortunes in the
-   `homestuck` directory. If you want to build a few at a time, the syntax is
-   `make <dir/target.dat>`. For example, `make homestuck/karkatvantas.dat` and
-   then `make homestuck/davestrider.dat homestuck/roselalonde.dat` builds those
-   three strfiles. Be mindful not to omit the file extension.
+5. Choose which targets you want and Make will build them. All fortune files are
+   located in the `src` directory. If you want to build a few at a time, the
+   syntax is `make src/<dir/target.dat>`. For example, `make
+   src/homestuck/karkatvantas.dat` and then `make src/homestuck/davestrider.dat
+   src/homestuck/roselalonde.dat` builds those three strfiles. Be mindful not to
+   omit the file extension.
 6. Optionally, run `make clean` to delete all built files and start over.
 7. Finally, install. Only fortune files that have had strfiles built will be
    copied over to the system-wide directories. `make install`
