@@ -1,6 +1,12 @@
 Copyright (c) 2014 Hector A Escobedo IV
 
-./homestuck
+src/homestuck/*
 Copyright (c) 2014 MSPaintAdventures.com
 Copyright (c) 2014 Andrew Hussie
 Copyright (c) 2014 What Pumpkin
+
+src/worm
+Copyright (c) 2011-2013 Wildbow
+
+src/shitemacssays
+Attributed to various visitors to #emacs on irc.freenode.net
