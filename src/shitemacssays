@@ -150,3 +150,5 @@ I hate it when people reject things based on metadata.
 %
 elisp is fast when you replace elisp with something actually fast
 %
+let's change elisp so that properties are only inherited upon garbage collection
+%
