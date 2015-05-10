@@ -665,7 +665,7 @@ __yellow__()TA: yeah, i can see it.
 TA: but..
 TA: it lo0ks 2d.__reset_color__()
 %
-__yellow__()TA: O_0__reset_color__()
+__yellow__()TA: O_0 __reset_color__()
 %
 __yellow__()SOLLUX: ok, well i believed y0u about that, but yeah, i can see that.
 SOLLUX: eugh, can s0meone get rid 0f that thing please?__reset_color__()
